@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wornspine Studio</title>
+  <meta name="description" content="Wornspine Studio creates atmospheric narrative games.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="dust"></canvas>
+  <div class="grain"></div>
+
+  <header class="topbar">
+    <a class="logo" href="#home">
+      <span class="logo-mark">♜</span>
+      <span>WORNSPINE</span>
+    </a>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#marginalia">Marginalia</a>
+      <a href="#studio">Studio</a>
+      <a href="#news">News</a>
+      <a href="#press">Press</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="steam-btn" href="#">Wishlist on Steam</a>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-bg" data-parallax="0.025"></div>
+      <div class="hero-overlay"></div>
+
+      <div class="hero-copy reveal">
+        <div class="sigil">♜</div>
+        <p class="kicker">Independent narrative studio</p>
+        <h1>WORNSPINE</h1>
+        <p class="tagline">Stories that <em>linger.</em></p>
+        <p class="intro">Wornspine is an independent studio crafting narrative-driven experiences where atmosphere, art and story leave their mark.</p>
+        <a class="watch" href="#">
+          <span class="play">▶</span>
+          <span>Watch trailer</span>
+        </a>
+      </div>
+
+      <a class="scroll-cue" href="#marginalia">
+        <span>⌄</span>
+        <small>Scroll</small>
+      </a>
+    </section>
+
+    <section class="marginalia split-section" id="marginalia">
+      <div class="copy reveal">
+        <p class="eyebrow">The anthology</p>
+        <h2>Marginalia</h2>
+        <p class="subhead">Seven books. Seven sins. Seven tales.</p>
+        <p>An anthology series of narrative games, each book a standalone tale set in the world of Marginalia.</p>
+        <a class="outline-btn" href="#books">Explore the books</a>
+      </div>
+      <div class="art reveal">
+        <img src="assets/marginalia.jpg" alt="Marginalia book on a dark desk">
+      </div>
+    </section>
+
+    <section class="featured reveal">
+      <div class="featured-copy">
+        <p class="eyebrow">Featured: Book I</p>
+        <h2>Last Measure</h2>
+        <p class="subhead">Pride</p>
+        <p>A bard. A dead musician. A choice that echoes forever.</p>
+        <a class="outline-btn" href="#">Learn more</a>
+      </div>
+      <div class="featured-art"></div>
+    </section>
+
+    <section class="values">
+      <article><span>◉</span><h3>Narrative First</h3><p>Story above all.</p></article>
+      <article><span>✺</span><h3>Atmosphere</h3><p>Art that breathes.</p></article>
+      <article><span>⚔</span><h3>No Combat</h3><p>Experience, don't fight.</p></article>
+      <article><span>♜</span><h3>Meaningful Choices</h3><p>Your decisions linger.</p></article>
+    </section>
+
+    <section class="books" id="books">
+      <div class="section-title reveal">
+        <p class="eyebrow">The collection</p>
+        <h2>Choose a tale</h2>
+      </div>
+      <div class="book-grid">
+        <article class="book-card" data-book="pride">
+          <div class="cover cover-pride"><span>PRIDE</span></div>
+          <h3>Last Measure</h3>
+        </article>
+        <article class="book-card" data-book="envy">
+          <div class="cover cover-envy"><span>ENVY</span></div>
+          <h3>Honoured in Memory</h3>
+        </article>
+        <article class="book-card" data-book="greed">
+          <div class="cover cover-greed"><span>GREED</span></div>
+          <h3>Quietus</h3>
+        </article>
+        <article class="book-card active" data-book="lust">
+          <div class="cover cover-lust"><span>LUST</span></div>
+          <h3>My Muse</h3>
+        </article>
+      </div>
+    </section>
+
+    <section class="tale-page" id="my-muse">
+      <div class="tale-bg"></div>
+      <div class="tale-copy reveal">
+        <p class="eyebrow">Book IV</p>
+        <h2>My Muse</h2>
+        <p class="subhead">Lust</p>
+        <p>A restorer. A vampire. A love that turned to a cage.</p>
+        <p>Restore what was beautiful. Uncover what was never meant to be found.</p>
+        <a class="steam-btn large" href="#">Wishlist on Steam</a>
+      </div>
+      <div class="gallery reveal">
+        <button class="gallery-nav" data-dir="-1">‹</button>
+        <div class="thumbs">
+          <img src="assets/muse.jpg" alt="">
+          <img src="assets/hero.jpg" alt="">
+          <img src="assets/marginalia.jpg" alt="">
+          <img src="assets/books.jpg" alt="">
+        </div>
+        <button class="gallery-nav" data-dir="1">›</button>
+      </div>
+      <div class="about-tale reveal">
+        <h3>About the tale</h3>
+        <p>Invited to an ancient observatory high in the mountains, you are tasked with restoring priceless objects. Each is a prison, each holds a soul, and he watches as you set them free.</p>
+      </div>
+    </section>
+
+    <section class="studio" id="studio">
+      <div class="studio-copy reveal">
+        <p class="eyebrow">About us</p>
+        <h2>Wornspine</h2>
+        <p>We are a small, passionate team united by our love for dark stories, unforgettable characters and worlds that feel lived in.</p>
+        <p>Our goal is simple: create experiences that stay with you long after the credits roll.</p>
+      </div>
+      <div class="team reveal">
+        <article><div class="portrait"></div><h3>Penny</h3><p>Creative Director</p></article>
+        <article><div class="portrait"></div><h3>Sinclair</h3><p>Technical Director</p></article>
+        <article><div class="portrait"></div><h3>Billie</h3><p>Art Director</p></article>
+        <article><div class="portrait"></div><h3>Jimmy</h3><p>Audio Director</p></article>
+      </div>
+      <blockquote>“We don't just make games.<br>We craft stories that <em>linger.</em>”</blockquote>
+    </section>
+
+    <section class="news" id="news">
+      <div class="section-title reveal">
+        <p class="eyebrow">Journal</p>
+        <h2>News & Devlog</h2>
+      </div>
+      <div class="news-grid">
+        <article class="news-card reveal">
+          <img src="assets/hero.jpg" alt="">
+          <p class="date">July 18, 2026</p>
+          <h3>Book IV: My Muse</h3>
+          <p>A glimpse into the observatory and the Pale Man's workshop.</p>
+          <a href="#">Read more →</a>
+        </article>
+        <article class="news-card reveal">
+          <img src="assets/muse.jpg" alt="">
+          <p class="date">July 10, 2026</p>
+          <h3>Behind the Music of Marginalia</h3>
+          <p>Creating the melancholic themes for Book I.</p>
+          <a href="#">Read more →</a>
+        </article>
+        <article class="news-card reveal">
+          <img src="assets/newsletter.jpg" alt="">
+          <p class="date">June 30, 2026</p>
+          <h3>Next Fest Thoughts</h3>
+          <p>Our experience with the demo and what comes next.</p>
+          <a href="#">Read more →</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="newsletter" id="contact">
+      <div class="newsletter-bg"></div>
+      <div class="newsletter-copy reveal">
+        <p class="eyebrow">Letters from the library</p>
+        <h2>Stay Updated</h2>
+        <p>Subscribe to our newsletter and be the first to know about updates, releases and studio news.</p>
+        <form onsubmit="event.preventDefault(); document.querySelector('.form-note').textContent='Subscribed. The library remembers.';">
+          <input type="email" placeholder="Your email address" required>
+          <button type="submit">Subscribe</button>
+        </form>
+        <small class="form-note">We respect your privacy. Unsubscribe anytime.</small>
+      </div>
+    </section>
+  </main>
+
+  <footer id="press">
+    <div class="footer-brand">
+      <div class="logo-mark">♜</div>
+      <strong>WORNSPINE</strong>
+      <span>Stories that linger.</span>
+    </div>
+    <div><h4>Navigation</h4><a href="#home">Home</a><a href="#marginalia">Marginalia</a><a href="#studio">Studio</a><a href="#news">News</a></div>
+    <div><h4>Marginalia</h4><a href="#">Book I: Last Measure</a><a href="#">Book II: Honoured in Memory</a><a href="#">Book III: Quietus</a><a href="#">Book IV: My Muse</a></div>
+    <div><h4>Resources</h4><a href="#">Press Kit</a><a href="#">Screenshots</a><a href="#">Media</a><a href="#">FAQ</a></div>
+  </footer>
+  <div class="copyright">© 2026 Wornspine Studio. All rights reserved.</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
