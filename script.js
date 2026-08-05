@@ -52,6 +52,8 @@ const observer = new IntersectionObserver(entries => {
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+const coarsePointer = window.matchMedia('(pointer: coarse)');
+const mobileViewport = window.matchMedia('(max-width: 900px)');
 const pointer = {
   targetX: 0,
   targetY: 0,
@@ -60,6 +62,7 @@ const pointer = {
 };
 
 function setPointerTarget(event) {
+  if (coarsePointer.matches || mobileViewport.matches) return;
   pointer.targetX = (event.clientX / window.innerWidth - 0.5) * 2;
   pointer.targetY = (event.clientY / window.innerHeight - 0.5) * 2;
 }
@@ -74,7 +77,7 @@ document.documentElement.addEventListener('mouseleave', resetPointerTarget);
 window.addEventListener('blur', resetPointerTarget);
 
 function animateParallax() {
-  if (!prefersReducedMotion.matches) {
+  if (!prefersReducedMotion.matches && !coarsePointer.matches && !mobileViewport.matches) {
     pointer.currentX += (pointer.targetX - pointer.currentX) * 0.035;
     pointer.currentY += (pointer.targetY - pointer.currentY) * 0.035;
 
@@ -87,6 +90,11 @@ function animateParallax() {
     entrance.style.setProperty('--bg-y', `${bgY}px`);
     entrance.style.setProperty('--content-x', `${contentX}px`);
     entrance.style.setProperty('--content-y', `${contentY}px`);
+  } else {
+    entrance.style.setProperty('--bg-x', '0px');
+    entrance.style.setProperty('--bg-y', '0px');
+    entrance.style.setProperty('--content-x', '0px');
+    entrance.style.setProperty('--content-y', '0px');
   }
 
   requestAnimationFrame(animateParallax);
@@ -100,6 +108,7 @@ let particles = [];
 let dustWidth = 0;
 let dustHeight = 0;
 let dpr = 1;
+let dustAnimationId = null;
 
 function makeParticle(randomY = true) {
   const large = Math.random() < 0.16;
@@ -117,7 +126,8 @@ function makeParticle(randomY = true) {
 }
 
 function resizeDust() {
-  dpr = Math.min(window.devicePixelRatio || 1, 2);
+  const isMobile = mobileViewport.matches || coarsePointer.matches;
+  dpr = Math.min(window.devicePixelRatio || 1, isMobile ? 1.35 : 2);
   dustWidth = window.innerWidth;
   dustHeight = window.innerHeight;
 
@@ -128,7 +138,9 @@ function resizeDust() {
 
   ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-  const count = Math.min(240, Math.max(145, Math.floor((dustWidth * dustHeight) / 7500)));
+  const desktopCount = Math.min(240, Math.max(145, Math.floor((dustWidth * dustHeight) / 7500)));
+  const mobileCount = Math.min(85, Math.max(48, Math.floor((dustWidth * dustHeight) / 11500)));
+  const count = isMobile ? mobileCount : desktopCount;
   particles = Array.from({ length: count }, () => makeParticle(true));
 }
 
@@ -167,9 +179,22 @@ function drawDust() {
     }
   }
 
-  requestAnimationFrame(drawDust);
+  dustAnimationId = requestAnimationFrame(drawDust);
+}
+
+function handleVisibilityChange() {
+  if (document.hidden) {
+    if (dustAnimationId) cancelAnimationFrame(dustAnimationId);
+    dustAnimationId = null;
+    return;
+  }
+
+  if (!dustAnimationId) drawDust();
 }
 
 window.addEventListener('resize', resizeDust, { passive: true });
+mobileViewport.addEventListener?.('change', resizeDust);
+coarsePointer.addEventListener?.('change', resizeDust);
+document.addEventListener('visibilitychange', handleVisibilityChange);
 resizeDust();
 drawDust();
