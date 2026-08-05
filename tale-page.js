@@ -1,7 +1,6 @@
 const galleryButtons = Array.from(document.querySelectorAll('.gallery-open'));
 const lightbox = document.querySelector('.lightbox');
 const lightboxImage = document.querySelector('.lightbox-image');
-const lightboxCaption = document.querySelector('.lightbox-caption');
 const closeButton = document.querySelector('.lightbox-close');
 const previousButton = document.querySelector('.lightbox-prev');
 const nextButton = document.querySelector('.lightbox-next');
@@ -18,7 +17,6 @@ function showImage(index) {
 
   lightboxImage.src = button.dataset.full || image.src;
   lightboxImage.alt = image.alt;
-  lightboxCaption.textContent = button.dataset.caption || image.alt;
 }
 
 function openLightbox(index) {
