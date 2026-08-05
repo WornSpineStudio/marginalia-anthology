@@ -5,7 +5,8 @@ const enterButtons = [
   document.querySelector('#scrollCue')
 ];
 
-let siteEntered = false;
+const returningToBooks = window.location.hash === '#books';
+let siteEntered = returningToBooks;
 
 function blockScroll(event) {
   if (!siteEntered) event.preventDefault();
@@ -17,27 +18,44 @@ function blockScrollKeys(event) {
   if (blocked.includes(event.key)) event.preventDefault();
 }
 
-window.scrollTo(0, 0);
-document.body.style.overflow = 'hidden';
-window.addEventListener('wheel', blockScroll, { passive: false });
-window.addEventListener('touchmove', blockScroll, { passive: false });
-window.addEventListener('keydown', blockScrollKeys, { passive: false });
-
-function enterLibrary() {
-  if (siteEntered) return;
+function releaseScrollLock() {
   siteEntered = true;
-  entrance.classList.add('leaving');
   document.body.style.overflow = '';
   window.removeEventListener('wheel', blockScroll);
   window.removeEventListener('touchmove', blockScroll);
   window.removeEventListener('keydown', blockScrollKeys);
+}
+
+if (returningToBooks) {
+  releaseScrollLock();
+  requestAnimationFrame(() => document.querySelector('#books')?.scrollIntoView({ block: 'start' }));
+} else {
+  window.scrollTo(0, 0);
+  document.body.style.overflow = 'hidden';
+  window.addEventListener('wheel', blockScroll, { passive: false });
+  window.addEventListener('touchmove', blockScroll, { passive: false });
+  window.addEventListener('keydown', blockScrollKeys, { passive: false });
+}
+
+window.addEventListener('pageshow', event => {
+  if (event.persisted || window.location.hash === '#books') {
+    releaseScrollLock();
+    requestAnimationFrame(() => document.querySelector('#books')?.scrollIntoView({ block: 'start' }));
+  }
+});
+
+function enterLibrary() {
+  if (siteEntered) return;
+  siteEntered = true;
+  entrance?.classList.add('leaving');
+  releaseScrollLock();
 
   window.setTimeout(() => {
-    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }, 390);
 
   window.setTimeout(() => {
-    entrance.classList.remove('leaving');
+    entrance?.classList.remove('leaving');
   }, 1250);
 }
 
@@ -77,7 +95,7 @@ document.documentElement.addEventListener('mouseleave', resetPointerTarget);
 window.addEventListener('blur', resetPointerTarget);
 
 function animateParallax() {
-  if (!prefersReducedMotion.matches && !coarsePointer.matches && !mobileViewport.matches) {
+  if (entrance && !prefersReducedMotion.matches && !coarsePointer.matches && !mobileViewport.matches) {
     pointer.currentX += (pointer.targetX - pointer.currentX) * 0.035;
     pointer.currentY += (pointer.targetY - pointer.currentY) * 0.035;
 
@@ -90,7 +108,7 @@ function animateParallax() {
     entrance.style.setProperty('--bg-y', `${bgY}px`);
     entrance.style.setProperty('--content-x', `${contentX}px`);
     entrance.style.setProperty('--content-y', `${contentY}px`);
-  } else {
+  } else if (entrance) {
     entrance.style.setProperty('--bg-x', '0px');
     entrance.style.setProperty('--bg-y', '0px');
     entrance.style.setProperty('--content-x', '0px');
@@ -103,7 +121,7 @@ function animateParallax() {
 animateParallax();
 
 const canvas = document.querySelector('#dust');
-const ctx = canvas.getContext('2d', { alpha: true });
+const ctx = canvas?.getContext('2d', { alpha: true });
 let particles = [];
 let dustWidth = 0;
 let dustHeight = 0;
@@ -126,6 +144,7 @@ function makeParticle(randomY = true) {
 }
 
 function resizeDust() {
+  if (!canvas || !ctx) return;
   const isMobile = mobileViewport.matches || coarsePointer.matches;
   dpr = Math.min(window.devicePixelRatio || 1, isMobile ? 1.35 : 2);
   dustWidth = window.innerWidth;
@@ -145,6 +164,7 @@ function resizeDust() {
 }
 
 function drawDust() {
+  if (!canvas || !ctx) return;
   ctx.clearRect(0, 0, dustWidth, dustHeight);
 
   for (const p of particles) {
@@ -183,6 +203,7 @@ function drawDust() {
 }
 
 function handleVisibilityChange() {
+  if (!canvas || !ctx) return;
   if (document.hidden) {
     if (dustAnimationId) cancelAnimationFrame(dustAnimationId);
     dustAnimationId = null;
@@ -192,9 +213,11 @@ function handleVisibilityChange() {
   if (!dustAnimationId) drawDust();
 }
 
-window.addEventListener('resize', resizeDust, { passive: true });
-mobileViewport.addEventListener?.('change', resizeDust);
-coarsePointer.addEventListener?.('change', resizeDust);
-document.addEventListener('visibilitychange', handleVisibilityChange);
-resizeDust();
-drawDust();
+if (canvas && ctx) {
+  window.addEventListener('resize', resizeDust, { passive: true });
+  mobileViewport.addEventListener?.('change', resizeDust);
+  coarsePointer.addEventListener?.('change', resizeDust);
+  document.addEventListener('visibilitychange', handleVisibilityChange);
+  resizeDust();
+  drawDust();
+}
