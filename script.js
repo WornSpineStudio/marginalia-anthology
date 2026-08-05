@@ -50,6 +50,36 @@ const obs=new IntersectionObserver(entries=>{
 },{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
+// Keep visitors on the cover until they deliberately enter.
+const enterSite=document.getElementById('enter-site');
+let siteEntered=false;
+
+function blockScroll(event){
+  if(!siteEntered) event.preventDefault();
+}
+
+function blockScrollKeys(event){
+  if(siteEntered) return;
+  const blocked=['ArrowDown','ArrowUp','PageDown','PageUp','Home','End',' '];
+  if(blocked.includes(event.key)) event.preventDefault();
+}
+
+window.scrollTo(0,0);
+document.body.style.overflow='hidden';
+window.addEventListener('wheel',blockScroll,{passive:false});
+window.addEventListener('touchmove',blockScroll,{passive:false});
+window.addEventListener('keydown',blockScrollKeys,{passive:false});
+
+enterSite?.addEventListener('click',event=>{
+  event.preventDefault();
+  siteEntered=true;
+  document.body.style.overflow='';
+  window.removeEventListener('wheel',blockScroll);
+  window.removeEventListener('touchmove',blockScroll);
+  window.removeEventListener('keydown',blockScrollKeys);
+  document.querySelector('#marginalia')?.scrollIntoView({behavior:'smooth'});
+});
+
 document.querySelectorAll('.book-card').forEach(card=>{
   card.addEventListener('mouseenter',()=>{
     document.querySelectorAll('.book-card').forEach(c=>c.classList.remove('active'));
