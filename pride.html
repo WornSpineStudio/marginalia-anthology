@@ -11,13 +11,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="tale-page.css?v=20260805-4">
+  <link rel="stylesheet" href="tale-page.css?v=20260805-5">
 </head>
 <body class="tale-body pride-body">
   <main class="tale-page">
     <div class="paper-shell">
       <a class="return-button" href="index.html#books"><span aria-hidden="true">←</span> Return to Collection</a>
-
       <header class="folio-header">
         <div class="title-block">
           <p class="ornament-label"><span></span> Pride <span></span></p>
@@ -25,36 +24,30 @@
           <div class="title-flourish" aria-hidden="true">✦</div>
           <p class="title-tagline">All finales are performances. This one simply never ends.</p>
         </div>
-
         <div class="folio-side folio-right" aria-hidden="true">
           <span class="folio-small">Marginalia<br>Anthology</span>
           <span class="folio-monogram">I</span>
         </div>
       </header>
-
       <section class="illustration-layout" aria-label="Last Measure illustration and marginal notes">
         <aside class="margin-column margin-left" aria-label="Left marginal notes">
           <p class="margin-note note-one">Nonsense</p>
           <p class="margin-note note-two">A waste<br>of time</p>
         </aside>
-
         <figure class="tale-plate">
           <div class="plate-ornament plate-ornament-top" aria-hidden="true">⌁</div>
-          <div class="plate-image" role="img" aria-label="The Bard beneath a suspended noose, holding his violin and bow"></div>
+          <div class="plate-image" role="img" aria-label="The Bard holding his violin and bow"></div>
           <div class="plate-ornament plate-ornament-bottom" aria-hidden="true">⌁</div>
         </figure>
-
         <aside class="margin-column margin-right" aria-label="Right marginal notes">
           <p class="margin-note note-three">Fear,<br>my friend</p>
           <p class="margin-note note-four">I am your<br>only salvation</p>
         </aside>
       </section>
-
       <section class="synopsis-section">
         <p class="ornament-label section-label"><span></span> Synopsis <span></span></p>
         <p class="synopsis-copy">The virtuoso takes the final bow. Strings fray. Applause fades.<br>In the hush between heartbeats, pride demands its due.<br>The last note is never the end—only the echo you’re left to carry.</p>
       </section>
-
       <section class="tale-facts" aria-label="Tale details">
         <article><span class="fact-icon">✒</span><small>Genre</small><strong>Dark Literary<br>Fantasy</strong></article>
         <article><span class="fact-icon">◐</span><small>Theme</small><strong>Ego, Performance,<br>Obsession</strong></article>
@@ -62,20 +55,35 @@
         <article><span class="fact-icon">✦</span><small>Tone</small><strong>Haunting, Introspective,<br>Unforgiving</strong></article>
         <article><span class="fact-icon">▱</span><small>Tale</small><strong>Tale I<br>Marginalia Anthology</strong></article>
       </section>
-
       <section class="gallery-section" aria-labelledby="gallery-title">
         <div class="gallery-heading">
           <p class="ornament-label section-label"><span></span> Within this tale <span></span></p>
           <h2 id="gallery-title">Fragments from the stage</h2>
         </div>
-
         <div class="gallery-grid">
-          <div class="gallery-item"><div class="gallery-slot" aria-label="Reserved gallery image one"></div></div>
-          <div class="gallery-item"><div class="gallery-slot" aria-label="Reserved gallery image two"></div></div>
-          <div class="gallery-item"><div class="gallery-slot" aria-label="Reserved gallery image three"></div></div>
+          <article class="gallery-item">
+            <button class="gallery-open" type="button" data-full="assets/pride_gallery_01.png" data-caption="The Stage">
+              <img src="assets/pride_gallery_01.png" alt="Last Measure scene from the stage" loading="lazy">
+              <span class="gallery-zoom" aria-hidden="true">View</span>
+            </button>
+            <p>I. The Stage</p>
+          </article>
+          <article class="gallery-item">
+            <button class="gallery-open" type="button" data-full="assets/pride_gallery_02.png" data-caption="The Performance">
+              <img src="assets/pride_gallery_02.png" alt="Last Measure performance scene" loading="lazy">
+              <span class="gallery-zoom" aria-hidden="true">View</span>
+            </button>
+            <p>II. The Performance</p>
+          </article>
+          <article class="gallery-item">
+            <button class="gallery-open" type="button" data-full="assets/pride_gallery_03.png" data-caption="The Silence">
+              <img src="assets/pride_gallery_03.png" alt="Last Measure atmospheric scene" loading="lazy">
+              <span class="gallery-zoom" aria-hidden="true">View</span>
+            </button>
+            <p>III. The Silence</p>
+          </article>
         </div>
       </section>
-
       <footer class="folio-quote">
         <div class="quote-flourish" aria-hidden="true">✦</div>
         <blockquote>“The loudest applause is the one only I can hear.”</blockquote>
@@ -83,5 +91,16 @@
       </footer>
     </div>
   </main>
+  <div class="lightbox" role="dialog" aria-modal="true" aria-label="Expanded gallery image" hidden>
+    <div class="lightbox-backdrop" aria-hidden="true"></div>
+    <button class="lightbox-close" type="button" aria-label="Close enlarged image">×</button>
+    <button class="lightbox-nav lightbox-prev" type="button" aria-label="Previous image">‹</button>
+    <figure class="lightbox-figure">
+      <img class="lightbox-image" src="" alt="">
+      <figcaption class="lightbox-caption"></figcaption>
+    </figure>
+    <button class="lightbox-nav lightbox-next" type="button" aria-label="Next image">›</button>
+  </div>
+  <script src="tale-page.js?v=20260805-1"></script>
 </body>
 </html>
