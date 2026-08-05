@@ -8,62 +8,88 @@
   <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon.png">
   <link rel="shortcut icon" type="image/png" href="assets/favicon.png">
   <link rel="apple-touch-icon" href="assets/favicon.png">
-  <link rel="stylesheet" href="tale-page.css?v=20260805-1">
+  <link rel="stylesheet" href="tale-page.css?v=20260805-2">
 </head>
 <body class="tale-body pride-body">
   <main class="tale-page">
     <div class="paper-shell">
-      <header class="page-topbar">
-        <a class="back-link" href="index.html#books">← Back to the collection</a>
-        <span class="page-mark">Marginalia Anthology · Book I</span>
-      </header>
+      <header class="folio-header">
+        <a class="folio-side folio-left" href="index.html#books" aria-label="Back to the collection">
+          <span class="folio-monogram">M</span>
+          <span class="folio-small">Book I</span>
+        </a>
 
-      <section class="tale-heading" aria-labelledby="tale-title">
-        <p class="tale-eyebrow"><span></span> Pride <span></span></p>
-        <h1 id="tale-title">Last Measure</h1>
-        <p class="tale-hook">Some performances refuse to end.</p>
-      </section>
+        <div class="title-block">
+          <p class="ornament-label"><span></span> Pride <span></span></p>
+          <h1>Last Measure</h1>
+          <div class="title-flourish" aria-hidden="true">✦</div>
+          <p class="title-tagline">All finales are performances. This one simply never ends.</p>
+        </div>
+
+        <div class="folio-side folio-right" aria-hidden="true">
+          <span class="folio-small">Marginalia<br>Anthology</span>
+          <span class="folio-monogram">I</span>
+        </div>
+      </header>
 
       <section class="illustration-layout" aria-label="Last Measure illustration and marginal notes">
         <aside class="margin-column margin-left" aria-label="Left marginal notes">
           <p class="margin-note note-one">Nonsense</p>
-          <p class="margin-note note-two">A waste of time</p>
+          <p class="margin-note note-two">A waste<br>of time</p>
         </aside>
 
         <figure class="tale-plate">
+          <div class="plate-ornament plate-ornament-top" aria-hidden="true">⌁</div>
           <div class="plate-image" role="img" aria-label="The Bard beneath a suspended noose, holding his violin and bow"></div>
+          <div class="plate-ornament plate-ornament-bottom" aria-hidden="true">⌁</div>
         </figure>
 
         <aside class="margin-column margin-right" aria-label="Right marginal notes">
-          <p class="margin-note note-three">Fear, my friend</p>
-          <p class="margin-note note-four">I am your only salvation</p>
+          <p class="margin-note note-three">Fear,<br>my friend</p>
+          <p class="margin-note note-four">I am your<br>only salvation</p>
         </aside>
       </section>
 
       <section class="synopsis-section">
-        <p class="section-kicker"><span></span> Synopsis <span></span></p>
-        <p class="synopsis-copy">A grieving bard returns to the stage where admiration became obsession and memory became a prison. Guided by the echo of a dead musician, he must decide whether to embrace the performance, outwit it, or finally refuse to play.</p>
+        <p class="ornament-label section-label"><span></span> Synopsis <span></span></p>
+        <p class="synopsis-copy">The virtuoso takes the final bow. Strings fray. Applause fades.<br>In the hush between heartbeats, pride demands its due.<br>The last note is never the end—only the echo you’re left to carry.</p>
       </section>
 
       <section class="tale-facts" aria-label="Tale details">
-        <article><span>Theme</span><strong>Pride</strong></article>
-        <article><span>Protagonist</span><strong>The Bard</strong></article>
-        <article><span>Experience</span><strong>Narrative · No Combat</strong></article>
-        <article><span>Choices</span><strong>Three Endings</strong></article>
+        <article><span class="fact-icon">✒</span><small>Genre</small><strong>Dark Literary<br>Fantasy</strong></article>
+        <article><span class="fact-icon">◐</span><small>Theme</small><strong>Ego, Performance,<br>Obsession</strong></article>
+        <article><span class="fact-icon">◷</span><small>Length</small><strong>Short Tale<br>(~1 hour)</strong></article>
+        <article><span class="fact-icon">✦</span><small>Tone</small><strong>Haunting, Introspective,<br>Unforgiving</strong></article>
+        <article><span class="fact-icon">▱</span><small>Book</small><strong>Book I<br>Marginalia Anthology</strong></article>
       </section>
 
       <section class="gallery-section" aria-labelledby="gallery-title">
         <div class="gallery-heading">
-          <p class="section-kicker"><span></span> Within this tale <span></span></p>
+          <p class="ornament-label section-label"><span></span> Within this tale <span></span></p>
           <h2 id="gallery-title">Fragments from the stage</h2>
         </div>
 
         <div class="gallery-grid">
-          <div class="gallery-slot" aria-label="Reserved gallery image one"><span>I</span></div>
-          <div class="gallery-slot" aria-label="Reserved gallery image two"><span>II</span></div>
-          <div class="gallery-slot" aria-label="Reserved gallery image three"><span>III</span></div>
+          <div class="gallery-item">
+            <div class="gallery-slot" aria-label="Reserved gallery image one"></div>
+            <p>I. The Stage</p>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-slot" aria-label="Reserved gallery image two"></div>
+            <p>II. The Performance</p>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-slot" aria-label="Reserved gallery image three"></div>
+            <p>III. The Silence</p>
+          </div>
         </div>
       </section>
+
+      <footer class="folio-quote">
+        <div class="quote-flourish" aria-hidden="true">✦</div>
+        <blockquote>“The loudest applause is the one only I can hear.”</blockquote>
+        <p>— M.</p>
+      </footer>
     </div>
   </main>
 </body>
