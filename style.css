@@ -67,11 +67,24 @@ button, a { font: inherit; }
 .book-card:hover .cover::after { border-color: rgba(223,155,119,.72); box-shadow: inset 0 0 40px rgba(181,108,77,.12),0 0 26px rgba(181,108,77,.18); }
 .cover span { z-index: 1; color: #96705f; letter-spacing: .22em; font: 500 1.4rem Cormorant Garamond, serif; transition: .4s; }
 .book-card:hover .cover span { color: #e2a988; text-shadow: 0 0 16px rgba(181,108,77,.55); }
-.cover-pride { background: linear-gradient(rgba(6,3,3,.52),rgba(4,3,3,.84)),url('assets/books.jpg') center/cover; }
+.cover-pride { background: none; }
 .cover-envy { background: linear-gradient(rgba(6,3,3,.55),rgba(4,3,3,.84)),url('assets/marginalia.jpg') center/cover; }
 .cover-greed { background: linear-gradient(rgba(6,3,3,.55),rgba(4,3,3,.84)),url('assets/newsletter.jpg') center/cover; }
 .cover-lust { background: linear-gradient(rgba(6,3,3,.48),rgba(4,3,3,.84)),url('assets/muse.jpg') center/cover; }
 .book-card h3 { margin: 16px 0 0; color: #d7c1af; text-align: center; font: 500 1.45rem Cormorant Garamond, serif; }
+
+.tale-card .cover { padding: 0; border-radius: 10px; background: #070605; box-shadow: 0 22px 50px rgba(0,0,0,.42), inset 0 0 0 1px rgba(181,108,77,.08); transition: transform .45s cubic-bezier(.2,.8,.2,1), box-shadow .45s ease, border-color .45s ease; }
+.tale-card .cover-art { position: absolute; inset: 0; background: linear-gradient(180deg,rgba(4,3,3,.18) 0%,rgba(4,3,3,.05) 30%,rgba(4,3,3,.38) 100%), url('assets/pride_card.png') center 24% / cover no-repeat; filter: saturate(.82) contrast(1.03) brightness(.9); transform: scale(1.01); transition: transform .55s ease, filter .55s ease; }
+.tale-card .cover::before { content: ""; position: absolute; inset: 0; z-index: 2; pointer-events: none; border-radius: 10px; box-shadow: inset 0 0 0 1px rgba(223,155,119,.14), 0 0 0 1px rgba(181,108,77,.08); }
+.tale-card .cover::after { content: ""; position: absolute; inset: 12px; z-index: 3; pointer-events: none; border: 1px solid rgba(201,142,107,.66); border-radius: 7px; box-shadow: inset 0 0 0 1px rgba(92,52,35,.58), inset 0 0 34px rgba(0,0,0,.34); transition: border-color .4s ease, box-shadow .4s ease; }
+.tale-card .sin-label { position: absolute; left: 50%; bottom: 11%; z-index: 4; transform: translateX(-50%); color: #c99773; font: 500 clamp(1.2rem,1.5vw,1.75rem) Cormorant Garamond, serif; letter-spacing: .18em; text-transform: uppercase; text-shadow: 0 2px 14px rgba(0,0,0,.9); }
+.tale-card .sin-label::before, .tale-card .sin-label::after { content: ""; position: absolute; top: 50%; width: 32px; height: 1px; background: rgba(201,142,107,.45); }
+.tale-card .sin-label::before { right: calc(100% + 11px); }
+.tale-card .sin-label::after { left: calc(100% + 11px); }
+.tale-card:hover .cover { border-color: rgba(223,155,119,.52); box-shadow: 0 26px 60px rgba(0,0,0,.52), 0 0 24px rgba(181,108,77,.18), 0 0 60px rgba(181,108,77,.10), inset 0 0 0 1px rgba(223,155,119,.12); }
+.tale-card:hover .cover-art { transform: scale(1.045); filter: saturate(.9) contrast(1.07) brightness(.98); }
+.tale-card:hover .cover::after { border-color: rgba(223,155,119,.86); box-shadow: inset 0 0 0 1px rgba(120,67,45,.68), inset 0 0 42px rgba(181,108,77,.08), 0 0 24px rgba(181,108,77,.12); }
+.tale-card:hover h3 { color: #f1dfcf; text-shadow: 0 0 18px rgba(181,108,77,.12); }
 
 footer { padding: 58px 6vw; border-top: 1px solid rgba(181,108,77,.14); background: #050404; text-align: center; }
 .footer-logo { width: min(420px,78vw); opacity: .8; }
@@ -85,5 +98,5 @@ footer p { color: #665b55; font-size: .75rem; }
 
 @media (max-width: 1050px) { .entrance-content-shell { width: min(900px,94vw); transform: translate3d(var(--content-x),var(--content-y),0); } }
 @media (max-width: 900px) { .split-section { grid-template-columns: 1fr; min-height: 86vh; background-position: 62% center; } .art { display: none; } .copy { max-width: 720px; } .values { grid-template-columns: 1fr 1fr; } .book-grid { grid-template-columns: 1fr 1fr; } .logo-mist p { letter-spacing: .19em; } }
-@media (max-width: 560px) { .entrance-bg { background-position: 58% center; } .entrance-content-shell { width: 97vw; } .entrance-content { margin-top: 7vh; } .logo-mist { padding: 38px 14px 28px; } .split-section { background-position: 68% center; background-image: linear-gradient(90deg,rgba(5,4,3,.97) 0%,rgba(5,4,3,.86) 64%,rgba(5,4,3,.48) 100%),linear-gradient(180deg,rgba(0,0,0,.12),rgba(0,0,0,.42)),url('assets/background_second.png'); } .values,.book-grid { grid-template-columns: 1fr; } .copy { padding: 70px 26px; } .copy h1 { font-size: 4rem; } }
+@media (max-width: 560px) { .entrance-bg { background-position: 58% center; } .entrance-content-shell { width: 97vw; } .entrance-content { margin-top: 7vh; } .logo-mist { padding: 38px 14px 28px; } .split-section { background-position: 68% center; background-image: linear-gradient(90deg,rgba(5,4,3,.97) 0%,rgba(5,4,3,.86) 64%,rgba(5,4,3,.48) 100%),linear-gradient(180deg,rgba(0,0,0,.12),rgba(0,0,0,.42)),url('assets/background_second.png'); } .values,.book-grid { grid-template-columns: 1fr; } .copy { padding: 70px 26px; } .copy h1 { font-size: 4rem; } .tale-card .cover::after { inset: 10px; } .tale-card .sin-label { bottom: 10%; font-size: 1.45rem; } }
 @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; animation: none !important; transition: none !important; } }
