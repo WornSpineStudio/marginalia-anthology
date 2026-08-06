@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="tale-page.css?v=20260806-1">
-  <link rel="stylesheet" href="pride-facts.css?v=20260806-2">
+  <link rel="stylesheet" href="pride-facts.css?v=20260806-3">
 </head>
 <body class="tale-body pride-body">
   <main class="tale-page">
@@ -38,7 +38,7 @@
         <figure class="tale-plate">
           <div class="plate-ornament plate-ornament-top" aria-hidden="true">⌁</div>
           <div class="plate-image" role="img" aria-label="The Bard holding his violin and bow"></div>
-          <div class="wip-stamp" aria-label="Work in progress">W.I.P.</div>
+          <img class="wip-stamp" src="assets/WIP.png" alt="Work in progress">
           <div class="plate-ornament plate-ornament-bottom" aria-hidden="true">⌁</div>
         </figure>
         <aside class="margin-column margin-right" aria-label="Right marginal notes">
@@ -61,42 +61,15 @@
           <h2 id="gallery-title">Fragments from the stage</h2>
         </div>
         <div class="gallery-grid">
-          <article class="gallery-item">
-            <button class="gallery-open" type="button" data-full="assets/pride_gallery_01.png">
-              <img src="assets/pride_gallery_01.png" alt="Last Measure gallery image one" loading="lazy">
-              <span class="gallery-zoom" aria-hidden="true">View</span>
-            </button>
-          </article>
-          <article class="gallery-item">
-            <button class="gallery-open" type="button" data-full="assets/pride_gallery_02.png">
-              <img src="assets/pride_gallery_02.png" alt="Last Measure gallery image two" loading="lazy">
-              <span class="gallery-zoom" aria-hidden="true">View</span>
-            </button>
-          </article>
-          <article class="gallery-item">
-            <button class="gallery-open" type="button" data-full="assets/pride_gallery_03.png">
-              <img src="assets/pride_gallery_03.png" alt="Last Measure gallery image three" loading="lazy">
-              <span class="gallery-zoom" aria-hidden="true">View</span>
-            </button>
-          </article>
+          <article class="gallery-item"><button class="gallery-open" type="button" data-full="assets/pride_gallery_01.png"><img src="assets/pride_gallery_01.png" alt="Last Measure gallery image one" loading="lazy"><span class="gallery-zoom" aria-hidden="true">View</span></button></article>
+          <article class="gallery-item"><button class="gallery-open" type="button" data-full="assets/pride_gallery_02.png"><img src="assets/pride_gallery_02.png" alt="Last Measure gallery image two" loading="lazy"><span class="gallery-zoom" aria-hidden="true">View</span></button></article>
+          <article class="gallery-item"><button class="gallery-open" type="button" data-full="assets/pride_gallery_03.png"><img src="assets/pride_gallery_03.png" alt="Last Measure gallery image three" loading="lazy"><span class="gallery-zoom" aria-hidden="true">View</span></button></article>
         </div>
       </section>
-      <footer class="folio-quote">
-        <div class="quote-flourish" aria-hidden="true">✦</div>
-        <blockquote>“The loudest applause is the one only I can hear.”</blockquote>
-        <p>— E.</p>
-      </footer>
+      <footer class="folio-quote"><div class="quote-flourish" aria-hidden="true">✦</div><blockquote>“The loudest applause is the one only I can hear.”</blockquote><p>— E.</p></footer>
     </div>
   </main>
-  <div class="lightbox" role="dialog" aria-modal="true" aria-label="Expanded gallery image" hidden>
-    <div class="lightbox-backdrop" aria-hidden="true"></div>
-    <button class="lightbox-close" type="button" aria-label="Close enlarged image">×</button>
-    <button class="lightbox-nav lightbox-prev" type="button" aria-label="Previous image">‹</button>
-    <figure class="lightbox-figure">
-      <img class="lightbox-image" src="" alt="">
-    </figure>
-    <button class="lightbox-nav lightbox-next" type="button" aria-label="Next image">›</button>
-  </div>
+  <div class="lightbox" role="dialog" aria-modal="true" aria-label="Expanded gallery image" hidden><div class="lightbox-backdrop" aria-hidden="true"></div><button class="lightbox-close" type="button" aria-label="Close enlarged image">×</button><button class="lightbox-nav lightbox-prev" type="button" aria-label="Previous image">‹</button><figure class="lightbox-figure"><img class="lightbox-image" src="" alt=""></figure><button class="lightbox-nav lightbox-next" type="button" aria-label="Next image">›</button></div>
   <script src="tale-page.js?v=20260805-2"></script>
 </body>
 </html>
