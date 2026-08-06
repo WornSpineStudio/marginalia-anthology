@@ -1,0 +1,1 @@
+.tale-facts{grid-template-columns:repeat(3,minmax(0,1fr));max-width:760px}.tale-facts article:nth-child(3):after{display:none}@media(max-width:700px){.tale-facts{grid-template-columns:1fr;max-width:100%}.tale-facts article:after{display:none!important}}
