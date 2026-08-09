@@ -1,0 +1,47 @@
+.tale-plate{
+  --spot-x:50%;
+  --spot-y:50%;
+  --tilt-x:0deg;
+  --tilt-y:0deg;
+  --shift-x:0px;
+  --shift-y:0px;
+  transform:perspective(1200px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
+  transform-style:preserve-3d;
+  transition:transform .28s cubic-bezier(.2,.7,.2,1),box-shadow .28s ease;
+  will-change:transform;
+}
+.tale-plate .plate-image{
+  position:relative;
+  overflow:hidden;
+  transform:translate3d(var(--shift-x),var(--shift-y),0) scale(1.028)!important;
+  transition:transform .28s cubic-bezier(.2,.7,.2,1),filter .45s ease!important;
+  will-change:transform,filter;
+}
+.tale-plate .plate-image::after{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  z-index:3;
+  pointer-events:none;
+  opacity:0;
+  background:radial-gradient(circle 190px at var(--spot-x) var(--spot-y),rgba(255,235,196,.34) 0%,rgba(230,177,112,.2) 20%,rgba(181,108,77,.1) 38%,rgba(0,0,0,0) 66%);
+  mix-blend-mode:screen;
+  transition:opacity .28s ease;
+}
+.tale-plate.is-pointer-active .plate-image::after{opacity:1}
+.tale-plate.is-pointer-active{
+  box-shadow:0 26px 70px rgba(0,0,0,.42),0 0 28px rgba(181,108,77,.08),inset 0 0 0 1px rgba(255,255,255,.02);
+}
+@media (hover:none),(pointer:coarse){
+  .tale-plate{transform:none!important}
+  .tale-plate .plate-image{animation:tale-mobile-drift 12s ease-in-out infinite alternate;transform:scale(1.025)!important}
+  .tale-plate .plate-image::after{opacity:.32;background:radial-gradient(circle 220px at 38% 34%,rgba(255,235,196,.16),rgba(181,108,77,.07) 34%,transparent 68%)}
+}
+@keyframes tale-mobile-drift{
+  0%{background-position:center 22%}
+  100%{background-position:center 28%}
+}
+@media (prefers-reduced-motion:reduce){
+  .tale-plate,.tale-plate .plate-image{transition:none!important;animation:none!important;transform:none!important}
+  .tale-plate .plate-image::after{transition:none!important;opacity:0!important}
+}
