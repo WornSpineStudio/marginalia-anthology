@@ -24,7 +24,7 @@
   z-index:3;
   pointer-events:none;
   opacity:0;
-  background:radial-gradient(circle 190px at var(--spot-x) var(--spot-y),rgba(255,235,196,.34) 0%,rgba(230,177,112,.2) 20%,rgba(181,108,77,.1) 38%,rgba(0,0,0,0) 66%);
+  background:radial-gradient(circle 245px at var(--spot-x) var(--spot-y),rgba(255,235,196,.34) 0%,rgba(230,177,112,.2) 20%,rgba(181,108,77,.1) 38%,rgba(0,0,0,0) 66%);
   mix-blend-mode:screen;
   transition:opacity .28s ease;
 }
@@ -35,7 +35,7 @@
 @media (hover:none),(pointer:coarse){
   .tale-plate{transform:none!important}
   .tale-plate .plate-image{animation:tale-mobile-drift 12s ease-in-out infinite alternate;transform:scale(1.025)!important}
-  .tale-plate .plate-image::after{opacity:.32;background:radial-gradient(circle 220px at 38% 34%,rgba(255,235,196,.16),rgba(181,108,77,.07) 34%,transparent 68%)}
+  .tale-plate .plate-image::after{opacity:.32;background:radial-gradient(circle 270px at 38% 34%,rgba(255,235,196,.16),rgba(181,108,77,.07) 34%,transparent 68%)}
 }
 @keyframes tale-mobile-drift{
   0%{background-position:center 22%}
