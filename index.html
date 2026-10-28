@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="gothic-card.css?v=20260805-5">
   <link rel="stylesheet" href="wishlist.css?v=20260807-1">
   <link rel="stylesheet" href="locked-cards.css?v=20260904-1">
+  <link rel="stylesheet" href="cinematic-home.css?v=1">
 </head>
 <body>
   <canvas id="dust" aria-hidden="true"></canvas>
@@ -23,6 +24,8 @@
   <main>
     <section class="entrance" id="home" aria-label="Marginalia Anthology entrance">
       <div class="entrance-bg" aria-hidden="true"></div>
+      <div class="entrance-topline"><span>Worn Spine Studio presents</span><a href="#books" id="topExplore">The collection · 07</a></div>
+      <span class="entrance-index" aria-hidden="true">An invitation to the unknown — MMXXVI</span>
       <div class="entrance-grade" aria-hidden="true"></div>
       <div class="entrance-vignette" aria-hidden="true"></div>
 
@@ -52,7 +55,7 @@
 
     <section class="marginalia split-section" id="marginalia">
       <div class="copy reveal">
-        <p class="eyebrow">The anthology</p>
+        <p class="eyebrow chapter-rule">The anthology</p>
         <h1>Marginalia</h1>
         <p class="subhead">Seven books. Seven sins. Seven tales.</p>
         <p>Marginalia Anthology is a collection of narrative games, each book a standalone tale set within the same haunting library of stories.</p>
@@ -73,7 +76,7 @@
 
     <section class="books" id="books">
       <div class="section-title reveal">
-        <p class="eyebrow">The collection</p>
+        <p class="eyebrow chapter-rule">The collection</p>
         <h2>Choose a tale</h2>
       </div>
 
@@ -149,6 +152,15 @@
         </div>
       </div>
     </section>
+    <section class="editorial-interlude" aria-label="Discover Marginalia">
+      <div class="interlude-content reveal">
+        <div class="ornament" aria-hidden="true">✥</div>
+        <p class="eyebrow">Beyond the last page</p>
+        <h2>Some stories are not meant to be read.<br>They are meant to be lived.</h2>
+        <p>Seven doors. Seven human frailties. One library where every choice leaves its mark.</p>
+        <a href="https://store.steampowered.com/app/4559530/Marginalia/" target="_blank" rel="noopener noreferrer">Discover Marginalia on Steam</a>
+      </div>
+    </section>
   </main>
 
   <footer>
@@ -157,5 +169,6 @@
   </footer>
 
   <script src="script.js"></script>
+  <script src="cinematic-home.js"></script>
 </body>
 </html>
